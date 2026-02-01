@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\src\main\scala\empty\Led.scala:5:1: '{' expected.[0m
+[0m[[0m[31merror[0m] [0m[0mclass Led extends Module {[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\chisel-empty-master_2.13-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\Add$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\Add$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\Add.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\Add.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\AddMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\AddMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\AddMain$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\AddMain$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\AddMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\AddMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\Led$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\Led$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\Led.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\Led.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\LedMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\LedMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	empty\LedMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\chisel-empty-master\target\scala-2.13\classes\empty\LedMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
