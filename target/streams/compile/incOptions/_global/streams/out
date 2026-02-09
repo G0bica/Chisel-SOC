@@ -1,0 +1,29 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\target\scala-2.13\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBBridge.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master$State$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBBridge$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBBridge.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master$State$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBBridge$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_bridge.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_bridge$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master$State$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APBMasterGenerator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	APB_master.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\target\scala-2.13\classes.bak[0m

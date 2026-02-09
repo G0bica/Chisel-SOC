@@ -1,0 +1,101 @@
+import chisel3._
+import chisel3.util._
+
+class Traffic_light_fsm extends Module {
+
+  val io = IO(new Bundle {
+    val traffic_light_a = Output(UInt(3.W))
+    val traffic_light_b = Output(UInt(3.W))
+  })
+
+  object State extends ChiselEnum {
+    val g_a_r_b, y_a_r_b, r_a_r_b, r_a_y_b,
+        g_b_r_a, y_b_r_a, r_b_r_a, r_b_y_a = Value
+  }
+
+  import State._
+
+  val stateReg = RegInit(r_b_r_a)
+  val counter  = RegInit(0.U(32.W))
+
+  // default outputs
+  io.traffic_light_a := 1.U
+  io.traffic_light_b := 1.U
+
+  counter := counter + 1.U
+
+  switch(stateReg) {
+
+    is(g_a_r_b) {
+      io.traffic_light_a := 4.U
+      io.traffic_light_b := 1.U
+      when(counter === 20000000.U) {
+        stateReg := y_a_r_b
+        counter := 0.U
+      }
+    }
+
+    is(y_a_r_b) {
+      io.traffic_light_a := 2.U
+      io.traffic_light_b := 1.U
+      when(counter === 3000000.U) {
+        stateReg := r_a_r_b
+        counter := 0.U
+      }
+    }
+
+    is(r_a_r_b) {
+      io.traffic_light_a := 1.U
+      io.traffic_light_b := 1.U
+      when(counter === 3000000.U) {
+        stateReg := r_a_y_b
+        counter := 0.U
+      }
+    }
+
+    is(r_a_y_b) {
+      io.traffic_light_a := 1.U
+      io.traffic_light_b := 2.U
+      when(counter === 3000000.U) {
+        stateReg := g_b_r_a
+        counter := 0.U
+      }
+    }
+
+    is(g_b_r_a) {
+      io.traffic_light_a := 1.U
+      io.traffic_light_b := 4.U
+      when(counter === 20000000.U) {
+        stateReg := y_b_r_a
+        counter := 0.U
+      }
+    }
+
+    is(y_b_r_a) {
+      io.traffic_light_a := 1.U
+      io.traffic_light_b := 2.U
+      when(counter === 3000000.U) {
+        stateReg := r_b_r_a
+        counter := 0.U
+      }
+    }
+
+    is(r_b_r_a) {
+      io.traffic_light_a := 1.U
+      io.traffic_light_b := 1.U
+      when(counter === 3000000.U) {
+        stateReg := r_b_y_a
+        counter := 0.U
+      }
+    }
+
+    is(r_b_y_a) {
+      io.traffic_light_a := 2.U
+      io.traffic_light_b := 1.U
+      when(counter === 3000000.U) {
+        stateReg := g_a_r_b
+        counter := 0.U
+      }
+    }
+  }
+}

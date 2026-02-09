@@ -15,7 +15,7 @@ class APB_master extends Module {
 
   val io = IO(new Bundle {
     
-    val pResetn = Input(UInt(8.W))
+    
 
     val i_cmd   = Input(UInt(CW.W))
     val i_valid = Input(Bool())
@@ -97,8 +97,6 @@ class APB_master extends Module {
 object APBMasterGenerator extends App {
   println("Generating the hardware")
   emitVerilog(new APB_master(), Array("--target-dir", "generated"))
-  emitVerilog(new APB_timer(), Array("--target-dir", "generated"))
-  emitVerilog(new APBBridge(), Array("--target-dir", "generated"))
-  emitVerilog(new APBGPIO(), Array("--target-dir", "generated"))
-  emitVerilog(new APBInterconnect(), Array("--target-dir", "generated"))
+  emitVerilog(new APB_bridge(), Array("--target-dir", "generated"))
+  
 }

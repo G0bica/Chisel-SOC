@@ -1,0 +1,100 @@
+FIRRTL version 1.2.0
+circuit APB_bridge :
+  module APB_master :
+    input clock : Clock
+    input reset : Reset
+    output io : { flip i_cmd : UInt<65>, flip i_valid : UInt<1>, o_resp : UInt<33>, o_ready : UInt<1>, pADDR : UInt<32>, pSELx : UInt<1>, pENABLE : UInt<1>, pWRITE : UInt<1>, pWDATA : UInt<32>, flip pRDATA : UInt<32>, flip pREADY : UInt<1>, flip pSLVERR : UInt<1>} @[\\src\\main\\scala\\APB_master.scala 16:14]
+
+    reg stateReg : UInt<2>, clock with :
+      reset => (reset, UInt<1>("h0")) @[\\src\\main\\scala\\APB_master.scala 41:26]
+    node _T = asUInt(UInt<1>("h0")) @[\\src\\main\\scala\\APB_master.scala 43:21]
+    node _T_1 = asUInt(stateReg) @[\\src\\main\\scala\\APB_master.scala 43:21]
+    node _T_2 = eq(_T, _T_1) @[\\src\\main\\scala\\APB_master.scala 43:21]
+    when _T_2 : @[\\src\\main\\scala\\APB_master.scala 43:21]
+      when io.i_valid : @[\\src\\main\\scala\\APB_master.scala 46:24]
+        stateReg <= UInt<1>("h1") @[\\src\\main\\scala\\APB_master.scala 47:18]
+    else :
+      node _T_3 = asUInt(UInt<1>("h1")) @[\\src\\main\\scala\\APB_master.scala 43:21]
+      node _T_4 = asUInt(stateReg) @[\\src\\main\\scala\\APB_master.scala 43:21]
+      node _T_5 = eq(_T_3, _T_4) @[\\src\\main\\scala\\APB_master.scala 43:21]
+      when _T_5 : @[\\src\\main\\scala\\APB_master.scala 43:21]
+        stateReg <= UInt<2>("h2") @[\\src\\main\\scala\\APB_master.scala 53:16]
+      else :
+        node _T_6 = asUInt(UInt<2>("h2")) @[\\src\\main\\scala\\APB_master.scala 43:21]
+        node _T_7 = asUInt(stateReg) @[\\src\\main\\scala\\APB_master.scala 43:21]
+        node _T_8 = eq(_T_6, _T_7) @[\\src\\main\\scala\\APB_master.scala 43:21]
+        when _T_8 : @[\\src\\main\\scala\\APB_master.scala 43:21]
+          node _T_9 = and(io.pREADY, io.i_valid) @[\\src\\main\\scala\\APB_master.scala 59:22]
+          when _T_9 : @[\\src\\main\\scala\\APB_master.scala 59:36]
+            stateReg <= UInt<1>("h1") @[\\src\\main\\scala\\APB_master.scala 60:18]
+          else :
+            node _T_10 = eq(io.i_valid, UInt<1>("h0")) @[\\src\\main\\scala\\APB_master.scala 63:30]
+            node _T_11 = and(io.pREADY, _T_10) @[\\src\\main\\scala\\APB_master.scala 63:27]
+            when _T_11 : @[\\src\\main\\scala\\APB_master.scala 63:42]
+              stateReg <= UInt<1>("h0") @[\\src\\main\\scala\\APB_master.scala 64:18]
+    node _io_pADDR_T = bits(io.i_cmd, 31, 0) @[\\src\\main\\scala\\APB_master.scala 79:23]
+    io.pADDR <= _io_pADDR_T @[\\src\\main\\scala\\APB_master.scala 79:12]
+    node _io_pWDATA_T = bits(io.i_cmd, 63, 32) @[\\src\\main\\scala\\APB_master.scala 80:24]
+    io.pWDATA <= _io_pWDATA_T @[\\src\\main\\scala\\APB_master.scala 80:13]
+    node _io_pWRITE_T = bits(io.i_cmd, 64, 64) @[\\src\\main\\scala\\APB_master.scala 81:24]
+    io.pWRITE <= _io_pWRITE_T @[\\src\\main\\scala\\APB_master.scala 81:13]
+    node _io_pENABLE_T = eq(stateReg, UInt<2>("h2")) @[\\src\\main\\scala\\APB_master.scala 83:26]
+    io.pENABLE <= _io_pENABLE_T @[\\src\\main\\scala\\APB_master.scala 83:14]
+    node _io_pSELx_T = eq(stateReg, UInt<1>("h1")) @[\\src\\main\\scala\\APB_master.scala 84:24]
+    node _io_pSELx_T_1 = eq(stateReg, UInt<2>("h2")) @[\\src\\main\\scala\\APB_master.scala 84:47]
+    node _io_pSELx_T_2 = or(_io_pSELx_T, _io_pSELx_T_1) @[\\src\\main\\scala\\APB_master.scala 84:35]
+    io.pSELx <= _io_pSELx_T_2 @[\\src\\main\\scala\\APB_master.scala 84:12]
+    node _io_o_ready_T = and(io.pENABLE, io.pREADY) @[\\src\\main\\scala\\APB_master.scala 85:28]
+    io.o_ready <= _io_o_ready_T @[\\src\\main\\scala\\APB_master.scala 85:14]
+    node _io_o_resp_T = cat(io.pSLVERR, io.pRDATA) @[\\src\\main\\scala\\APB_master.scala 86:19]
+    io.o_resp <= _io_o_resp_T @[\\src\\main\\scala\\APB_master.scala 86:13]
+
+  module APB_bridge :
+    input clock : Clock
+    input reset : UInt<1>
+    output io : { flip io_address : UInt<32>, flip io_addr_strobe : UInt<1>, flip io_write_data : UInt<32>, flip io_write_strobe : UInt<1>, flip io_read_strobe : UInt<1>, io_read_data : UInt<32>, io_ready : UInt<1>, pADDR : UInt<32>, pSELx : UInt<1>, pENABLE : UInt<1>, pWRITE : UInt<1>, pWDATA : UInt<32>, flip pRDATA : UInt<32>, flip pREADY : UInt<1>, flip pSLVERR : UInt<1>} @[\\src\\main\\scala\\APB_bridge.scala 13:14]
+
+    wire cmd : UInt<65> @[\\src\\main\\scala\\APB_bridge.scala 38:19]
+    wire valid : UInt<1> @[\\src\\main\\scala\\APB_bridge.scala 39:19]
+    wire resp : UInt<33> @[\\src\\main\\scala\\APB_bridge.scala 40:19]
+    wire ready : UInt<1> @[\\src\\main\\scala\\APB_bridge.scala 41:19]
+    reg delayWrite : UInt<1>, clock with :
+      reset => (reset, UInt<1>("h0")) @[\\src\\main\\scala\\APB_bridge.scala 43:27]
+    wire write : UInt<1> @[\\src\\main\\scala\\APB_bridge.scala 44:24]
+    wire writeReq : UInt<1> @[\\src\\main\\scala\\APB_bridge.scala 45:24]
+    node _bridgeEnable_T = bits(io.io_address, 31, 24) @[\\src\\main\\scala\\APB_bridge.scala 49:35]
+    node bridgeEnable = eq(_bridgeEnable_T, UInt<8>("hc0")) @[\\src\\main\\scala\\APB_bridge.scala 49:44]
+    node _valid_T = and(io.io_addr_strobe, bridgeEnable) @[\\src\\main\\scala\\APB_bridge.scala 51:30]
+    valid <= _valid_T @[\\src\\main\\scala\\APB_bridge.scala 51:9]
+    node _write_T = eq(io.io_read_strobe, UInt<1>("h0")) @[\\src\\main\\scala\\APB_bridge.scala 54:34]
+    node _write_T_1 = and(io.io_write_strobe, _write_T) @[\\src\\main\\scala\\APB_bridge.scala 54:31]
+    write <= _write_T_1 @[\\src\\main\\scala\\APB_bridge.scala 54:9]
+    when valid : @[\\src\\main\\scala\\APB_bridge.scala 56:15]
+      delayWrite <= write @[\\src\\main\\scala\\APB_bridge.scala 57:16]
+    node _writeReq_T = mux(valid, write, delayWrite) @[\\src\\main\\scala\\APB_bridge.scala 60:18]
+    writeReq <= _writeReq_T @[\\src\\main\\scala\\APB_bridge.scala 60:12]
+    node cmd_hi = cat(writeReq, io.io_write_data) @[\\src\\main\\scala\\APB_bridge.scala 62:13]
+    node _cmd_T = cat(cmd_hi, io.io_address) @[\\src\\main\\scala\\APB_bridge.scala 62:13]
+    cmd <= _cmd_T @[\\src\\main\\scala\\APB_bridge.scala 62:7]
+    inst master_apb of APB_master @[\\src\\main\\scala\\APB_bridge.scala 65:26]
+    master_apb.clock <= clock
+    master_apb.reset <= reset
+    master_apb.io.i_cmd <= cmd @[\\src\\main\\scala\\APB_bridge.scala 67:25]
+    master_apb.io.i_valid <= valid @[\\src\\main\\scala\\APB_bridge.scala 68:25]
+    resp <= master_apb.io.o_resp @[\\src\\main\\scala\\APB_bridge.scala 70:9]
+    ready <= master_apb.io.o_ready @[\\src\\main\\scala\\APB_bridge.scala 71:9]
+    node _io_io_read_data_T = bits(resp, 32, 32) @[\\src\\main\\scala\\APB_bridge.scala 75:9]
+    node _io_io_read_data_T_1 = bits(resp, 31, 0) @[\\src\\main\\scala\\APB_bridge.scala 77:9]
+    node _io_io_read_data_T_2 = mux(_io_io_read_data_T, UInt<32>("hdeadfa17"), _io_io_read_data_T_1) @[\\src\\main\\scala\\APB_bridge.scala 74:25]
+    io.io_read_data <= _io_io_read_data_T_2 @[\\src\\main\\scala\\APB_bridge.scala 74:19]
+    node _io_io_ready_T = and(ready, bridgeEnable) @[\\src\\main\\scala\\APB_bridge.scala 80:24]
+    io.io_ready <= _io_io_ready_T @[\\src\\main\\scala\\APB_bridge.scala 80:15]
+    io.pADDR <= master_apb.io.pADDR @[\\src\\main\\scala\\APB_bridge.scala 82:14]
+    io.pSELx <= master_apb.io.pSELx @[\\src\\main\\scala\\APB_bridge.scala 83:14]
+    io.pENABLE <= master_apb.io.pENABLE @[\\src\\main\\scala\\APB_bridge.scala 84:14]
+    io.pWRITE <= master_apb.io.pWRITE @[\\src\\main\\scala\\APB_bridge.scala 85:14]
+    io.pWDATA <= master_apb.io.pWDATA @[\\src\\main\\scala\\APB_bridge.scala 86:14]
+    master_apb.io.pRDATA <= io.pRDATA @[\\src\\main\\scala\\APB_bridge.scala 88:25]
+    master_apb.io.pREADY <= io.pREADY @[\\src\\main\\scala\\APB_bridge.scala 89:25]
+    master_apb.io.pSLVERR <= io.pSLVERR @[\\src\\main\\scala\\APB_bridge.scala 90:25]
+

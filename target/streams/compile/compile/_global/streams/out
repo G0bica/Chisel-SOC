@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Matic\Documents\šola\fri\dn\Chisel-SOC\src\main\scala\APB_master.scala:35:24: type ChiselEnum in package experimental is deprecated (since Chisel 3.5): This type has moved to chisel3[0m
+[0m[[0m[33mwarn[0m] [0m[0m  object State extends ChiselEnum{[0m
+[0m[[0m[33mwarn[0m] [0m[0m                       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
